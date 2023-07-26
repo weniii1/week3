@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+
+<body>
+    Name:
+    <input type="text" size="15" id="name">
+    Delay:
+    <input type="text" id="delay">
+    <button id="set_alerm">Set alerm</button>
+    <div id="output"></div>
+</body>
+<script>
+    const n = document.getElementById("name");
+    const d = document.getElementById("delay");
+    const btn = document.getElementById("set_alerm");
+    const output = document.getElementById("output");
+
+    function alerm(n, d) {//這個的作用是為了回傳promise
+        return new Promise((resolve, reject) => {
+            if (d < 0) {
+                throw new Error('Alarm delay must not be negative')
+            }
+            window.setTimeout(() => {
+                resolve(`Wake up, ${n}!`);
+            }, d);
+        })
+    }
+
+    btn.addEventListener("click", () => {
+        alerm(n.value, d.value)
+            .then(message => output.textContent = message)
+            .catch(error => output.textContent = error);
+    });
+</script>
+</html>
