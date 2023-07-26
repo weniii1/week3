@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ternary_operator</title>
+    <style>
+        html{
+            transition: 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <label for="theme">Select theme: </label>
+    <select id="theme">
+        <option value="white">White</option>
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+    </select>
+
+    <h1>This is my website</h1>
+</body>
+<script>
+    var select = document.querySelector("select");
+    var html = document.querySelector("html");
+
+    select.onchange = function () {
+
+        switch (select.value) {
+            case "white":
+                update("white","black");
+                break;
+            case "black":
+                update("black","white");
+                break;
+            case "blue":
+                update("blue","white");
+                break;
+            case "yellow":
+                update("yellow","black");
+            default:
+            para.textContent = "";
+        }
+    };
+
+    function update(bgColor, textColor) {
+        html.style.backgroundColor = bgColor;
+        html.style.color = textColor;
+    }
+
+    // 練習用if else or switch 做更多顏色
+</script>
+</html>

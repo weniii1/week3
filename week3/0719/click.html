@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click&get</title>
+</head>
+<body>
+    <div>第一個div</div><br>
+    <div>第二個div</div><br>
+    <p id="p1">這是p1</p>
+    <p id="p2">這是p2</p>
+    <p class="p_class1">這是P的類別1-1</p>
+    <p class="p_class1">這是P的類別1-2</p>
+</body>
+<script>
+    const div_select = document.getElementsByTagName('div');
+    const p_select_by_id = document.getElementById('p1');
+    const p_select_by_class = document.getElementsByClassName('p_class1');
+
+    div_select[0].addEventListener("click", function(){
+        showname(div_select[0]);
+    });
+    p_select_by_id.addEventListener("click", function(){
+        showname(p_select_by_id);
+    });
+    p_select_by_class[1].addEventListener("click", function(){
+        showname(p_select_by_class[1]);
+    });
+    function showname(a){
+        alert(a.textContent);
+    }
+</script>
+</html>

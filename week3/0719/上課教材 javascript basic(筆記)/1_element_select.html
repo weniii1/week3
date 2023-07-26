@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element select</title>
+</head>
+<body>
+    <div>Here is div[0],it's been selected by getElementsByTagName</div>
+    <div>Here is div[1],it's been selected by getElementsByTagName</div>
+    <p id="p1">Here is p1,it's been selected by getElementById</p><!--id指定名稱，不會與其他重複-->
+    <p id="p2">Here is p2,it's not been selected</p>
+    <p class="p_class1">Here is p1_class[0],it's been selected by getElementsByClassName</p>
+    <p class="p_class1">Here is p1_class[1],it's been selected by getElementsByClassName</p>
+    <p class="p_class2">Here is p2_class[0],it's not been selected by getElementsByClassName</p>
+</body>
+<script>//const定義後不可變更。
+    const div_selected = document.getElementsByTagName('div');//此將div(及body內的兩個)存入div_selcted
+    const p_selected_by_id = document.getElementById('p1');//取得p1
+    const p_selected_by_class = document.getElementsByClassName('p_class1');//也可以拿到兩行p_class1
+
+    div_selected[0].addEventListener("click", function(){
+        showname(div_selected[0])//當超過一個時，便可用陣列的方式
+    });
+    p_selected_by_id.addEventListener("click", function(){
+        showname(p_selected_by_id)
+    });
+    p_selected_by_class[0].addEventListener("click",function(){
+        showname(p_selected_by_class[1])
+    });
+
+    function showname(parameter) {
+        alert(parameter.textContent)//彈出對話框，提示
+    }
+
+</script>
+</html>
